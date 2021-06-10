@@ -1,0 +1,12 @@
+데이터베이스는 MySql을 사용했습니다.
+Create 문이 없기때문에 생성된 데이터베이스와 테이블을 미리 준비해야합니다.
+
+Python 필요 모듈:
+
+flask : Back End Server
+jinja2 : Web templetes Engine 
+pymysql : MySql Database
+beautifulSoup : A Python package for parsing HTML and XML documents
+datetime : For Time
+requests : For Http connection
+re : regular expression

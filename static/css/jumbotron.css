@@ -1,0 +1,48 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body, input, textarea, select, button, table {
+  font-family: 'Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+  color: #222; font-size: 13px; line-height: 1.5;}
+
+
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.jumbotron{
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  text-shadow: black 0.2em 0.2em 0.2em;
+  color:white;
+}
+.jumbotron .container{
+  height: 300px;
+}
+
+.row{
+  padding:20px;
+}
+
+.naverlogo{
+  width: 180px;
+  height: 49px;
+}
+
+.acculogo{
+  width: 180px;
+  height: 49px;
+}
+.msnlogo{
+  width: 180px;
+  height: 49px;
+}
+
+
+th{
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}

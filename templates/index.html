@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Total Weather</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Total Weather</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="location.." class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Search</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-dark" id="naver_data">
+            <thead>
+              <tr>
+                <a href="https://n.weather.naver.com/">
+                <img src="../static/img/naver.jpeg" alt="naverlogo" class="naverlogo"></a>
+                <h1></h1>
+                <th class="col-md-2" scope="col">날짜</th>
+                <th class="col-md-2" scope="col">오늘</th>
+                <th class="col-md-2" scope="col">내일</th>
+                <th class="col-md-2" scope="col">모레</th>
+                <th class="col-md-2" scope="col">{{naver_data[3][1]}}</th>
+                <th class="col-md-2" scope="col">{{naver_data[4][1]}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">강수확률</th>
+                <td>{{naver_data[0][2]}}%</td>
+                <td>{{naver_data[1][2]}}%</td>
+                <td>{{naver_data[2][2]}}%</td>
+                <td>{{naver_data[3][2]}}%</td>
+                <td>{{naver_data[4][2]}}%</td>
+              </tr>
+              <tr>
+                <th scope="row">기상상태</th>
+                <td>{{naver_data[0][3]}}</td>
+                <td>{{naver_data[1][3]}}</td>
+                <td>{{naver_data[2][3]}}</td>
+                <td>{{naver_data[3][3]}}</td>
+                <td>{{naver_data[4][3]}}</td>
+              </tr>
+              <tr>
+                <th scope="row">기온 최고/최저</th>
+                <td>{{naver_data[0][4]}}°/{{naver_data[0][5]}}°</td>
+                <td>{{naver_data[1][4]}}°/{{naver_data[1][5]}}°</td>
+                <td>{{naver_data[2][4]}}°/{{naver_data[2][5]}}°</td>
+                <td>{{naver_data[3][4]}}°/{{naver_data[3][5]}}°</td>
+                <td>{{naver_data[4][4]}}°/{{naver_data[4][5]}}°</td>
+              </tr>
+              <tr>
+                <th scope="row">정확도</th>
+                <td>ㅡ</td>
+                <td>{{naver_data[1][7]}}%</td>
+                <td>{{naver_data[2][8]}}%</td>
+                <td>{{naver_data[3][9]}}%</td>
+                <td>{{naver_data[4][10]}}%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table table-dark" id="accuweather_data">
+              <thead>
+                <tr>
+                  <a href="https://www.accuweather.com/ko/kr/jangam-dong/2002771/daily-weather-forecast/2002771">
+                  <img src="../static/img/acculogo.png" class="acculogo" alt="accuweatherlogo"></a>
+                  <h1></h1>
+                  <th class="col-md-2" scope="col">날짜</th>
+                  <th class="col-md-2" scope="col">오늘</th>
+                  <th class="col-md-2" scope="col">내일</th>
+                  <th class="col-md-2" scope="col">모레</th>
+                  <th class="col-md-2" scope="col">{{accu_data[3][1]}}</th>
+                  <th class="col-md-2" scope="col">{{accu_data[4][1]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">강수확률</th>
+                  <td>{{accu_data[0][2]}}%</td>
+                  <td>{{accu_data[1][2]}}%</td>
+                  <td>{{accu_data[2][2]}}%</td>
+                  <td>{{accu_data[3][2]}}%</td>
+                  <td>{{accu_data[4][2]}}%</td>
+                </tr>
+                <tr>
+                  <th scope="row">기상상태</th>
+                  <td>{{accu_data[0][3]}}</td>
+                  <td>{{accu_data[1][3]}}</td>
+                  <td>{{accu_data[2][3]}}</td>
+                  <td>{{accu_data[3][3]}}</td>
+                  <td>{{accu_data[4][3]}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">기온 최고/최저</th>
+                  <td>{{accu_data[0][4]}}°/{{accu_data[0][5]}}°</td>
+                  <td>{{accu_data[1][4]}}°/{{accu_data[1][5]}}°</td>
+                  <td>{{accu_data[2][4]}}°/{{accu_data[2][5]}}°</td>
+                  <td>{{accu_data[3][4]}}°/{{accu_data[3][5]}}°</td>
+                  <td>{{accu_data[4][4]}}°/{{accu_data[4][5]}}°</td>
+                </tr>
+                <tr>
+                  <th scope="row">정확도</th>
+                  <td>ㅡ</td>
+                  <td>{{accu_data[1][7]}}%</td>
+                  <td>{{accu_data[2][8]}}%</td>
+                  <td>{{accu_data[3][9]}}%</td>
+                  <td>{{accu_data[4][10]}}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>&copy; made by OLC</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
